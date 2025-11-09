@@ -2,13 +2,13 @@
 """
 embed_assets.py
 
-Read an HTML file (default: docs/index.html), inline local CSS and JS files referenced
+Read an HTML file (default: index.html), inline local CSS and JS files referenced
 by <link rel="stylesheet" href="..."> and <script src="..."></script> into the HTML,
 wrapping CSS with <style>...</style> and JS with <script>...</script> so the result is a
 single standalone HTML file.
 
 Usage:
-    python3 scripts/embed_assets.py docs/index.html -o docs/combined.html
+    python3 scripts/embed_assets.py index.html -o combined.html
 
 Notes:
 - External resources (href/src starting with http://, https://, //) are left unchanged.
@@ -127,8 +127,8 @@ def combine_html(index_path, out_path, verbose=False):
 
 def parse_args():
     p = argparse.ArgumentParser(description='Inline CSS/JS into a single HTML file')
-    p.add_argument('index', nargs='?', default='docs/index.html', help='Path to source HTML (default: docs/index.html)')
-    p.add_argument('-o', '--out', default='docs/combined.html', help='Output path (default: docs/combined.html)')
+    p.add_argument('index', nargs='?', default='index.html', help='Path to source HTML (default: index.html)')
+    p.add_argument('-o', '--out', default='combined.html', help='Output path (default: combined.html)')
     p.add_argument('-v', '--verbose', action='store_true')
     return p.parse_args()
 
